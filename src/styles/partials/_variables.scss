@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
+
+$font-family-title: "Lora", sans-serif;
+$font-family-text: "Inter", sans-serif;
+
+// Light Mode Colors
+$primary-color: #1fc3cf;
+$low-emphasis: #eff4f7;
+$medium-emphasis: #828282;
+$background-color: #fbfeff;
+$text-color: #25282b;
+
+// Dark Mode Colors
+@media (prefers-color-scheme: dark) {
+  $primary-color: #1fc3cf;
+  $low-emphasis: #eff4f7;
+  $medium-emphasis: #828282;
+  $background-color: #121212;
+  $text-color: #e0e0e0;
+}

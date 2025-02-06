@@ -1,0 +1,21 @@
+@import "../styles/partials/variables";
+
+.container {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  svg {
+    stroke: $primary-color;
+  }
+  &::after {
+    content: "";
+    display: block;
+    width: 2px;
+    height: 90px;
+    margin: 0px auto;
+    background-color: $primary-color;
+  }
+}

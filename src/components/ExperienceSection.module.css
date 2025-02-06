@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair:opsz,wght@5..1200,800&family=Raleway:wght@500&display=swap");
+.container {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.container svg {
+  stroke: #1fc3cf;
+}
+.container::after {
+  content: "";
+  display: block;
+  width: 2px;
+  height: 90px;
+  margin: 0px auto;
+  background-color: #1fc3cf;
+}/*# sourceMappingURL=ExperienceSection.module.css.map */
