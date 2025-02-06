@@ -1,7 +1,7 @@
 import React from "react";
 import { useTheme } from "./ThemeContext";
 import { Lightbulb, LightbulbOff } from "lucide-react";
-import styles from "./SettingAppearance.module.scss";
+import styles from "./SettingAppearance.module.css";
 
 const SettingAppearance: React.FC = () => {
   const { theme, toggleTheme } = useTheme();

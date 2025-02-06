@@ -1,6 +1,6 @@
 import React from "react";
 import { Github, Linkedin, Instagram, Twitter } from "lucide-react";
-import styles from "./Sidebar.module.scss";
+import styles from "./Sidebar.module.css";
 
 const Sidebar: React.FC = () => {
   return (

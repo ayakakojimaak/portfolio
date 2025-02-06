@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./ProjectSection.module.scss";
+import styles from "./ProjectSection.module.css";
 
 const projects = [
   { id: 1, title: "Sample Project 1", tech: "React, TypeScript, HTML, CSS" },
