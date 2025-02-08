@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { Inter, Lora } from "next/font/google";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
+import { Lora, Inter } from "next/font/google";
+import "@/styles/globals.scss";
 
 const lora = Lora({
   subsets: ["latin"],
   variable: "--font-lora",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
@@ -22,8 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} ${lora.className}`}>{children}</body>
+    <html lang="en" className={lora.variable}>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }

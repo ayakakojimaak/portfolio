@@ -1,0 +1,48 @@
+$icon-size: 25px;
+
+.social {
+  display: none;
+}
+
+@media screen and (min-width: 1025px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    justify-content: space-between;
+    bottom: 0px;
+    left: 3vw;
+  }
+
+  .social {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: $icon-size;
+    gap: 10px;
+    svg {
+      stroke: #1fc3cf;
+    }
+    &::after {
+      content: "";
+      display: block;
+      width: 2px;
+      height: 90px;
+      margin: 0px auto;
+      background-color: #1fc3cf;
+    }
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: $icon-size;
+    padding-top: 3vw;
+    gap: 10px;
+  }
+  .navTitle {
+    writing-mode: sideways-lr;
+  }
+}
