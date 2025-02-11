@@ -1,5 +1,6 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
+import styles from "./Experience.module.scss";
 
 interface Experience {
   id: number;
@@ -41,7 +42,7 @@ const experiences: Experience[] = [
   },
   {
     id: 3,
-    title: "Graphic Designer",
+    title: "Graphic Designer & UI designer",
     company: "Toikatsu LLC",
     period: "October 2018 - January 2020",
     details: [
@@ -61,28 +62,23 @@ const experiences: Experience[] = [
 ];
 
 const Experience = () => {
-  const [show, setShow] = useState(false);
-  const [selectedExp, setSelectedExp] = useState<Experience | null>(null);
-
-  const handleShow = (exp: Experience) => {
-    setSelectedExp(exp);
-    setShow(true);
-  };
-
-  const handleClose = () => setShow(false);
-
   return (
-    <section className="container" id="experience">
-      <h2 className="mb-3 mt-5">
+    <section className={styles.experienceSection} id="experience">
+      <h2 className="mb-3">
         <span>04</span>
         <span>Experience</span>
       </h2>
+
       {experiences.map((exp) => (
-        <div key={exp.id} className="mb-4">
-          <h5>{exp.company}</h5>
-          <strong>{exp.title}</strong>
-          <span>{exp.period}</span>
-          <ul>
+        <div key={exp.id} className={styles.experienceItem}>
+          <div className={styles.header}>
+            <div className={styles.headerLeft}>
+              <h3 className={styles.company}>{exp.company}</h3>
+              <div className={styles.title}>{exp.title}</div>
+            </div>
+            <div className={styles.period}>{exp.period}</div>
+          </div>
+          <ul className={styles.details}>
             {exp.details.map((detail, index) => (
               <li key={index}>{detail}</li>
             ))}
