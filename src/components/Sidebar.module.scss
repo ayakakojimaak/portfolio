@@ -1,4 +1,4 @@
-@import "../styles/partials/variables";
+@use "../styles/partials/variables";
 
 $icon-size: 25px;
 
@@ -29,7 +29,7 @@ $icon-size: 25px;
       text-decoration: none;
       &:hover,
       &.active {
-        color: $primary-color;
+        color: variables.$primary-color;
       }
     }
   }
@@ -59,7 +59,7 @@ $icon-size: 25px;
       width: $icon-size;
       gap: 10px;
       svg {
-        stroke: $primary-color;
+        stroke: variables.$primary-color;
       }
       &::after {
         content: "";
@@ -67,7 +67,7 @@ $icon-size: 25px;
         width: 2px;
         height: 90px;
         margin: 0px auto;
-        background-color: $primary-color;
+        background-color: variables.$primary-color;
       }
     }
   }

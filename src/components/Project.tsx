@@ -79,7 +79,13 @@ const Project: React.FC = () => {
         </Modal.Header>
         <Modal.Body>
           {selectedProject?.image && (
-            <Image src={selectedProject.image} alt={selectedProject.title} className="img-fluid mb-3" />
+            <Image
+              src={selectedProject.image}
+              alt={selectedProject.title}
+              width={300}
+              height={300}
+              layout="intrinsic"
+            />
           )}
           <p>{selectedProject?.description}</p>
         </Modal.Body>
