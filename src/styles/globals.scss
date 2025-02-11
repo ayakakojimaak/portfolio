@@ -4,11 +4,11 @@
 
 body {
   font-family: $font-family-text;
-  color: $text-color;
+  color: var(--text-color);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: $background-color;
+  background-color: var(--background-color);
 }
 
 h1,
@@ -18,11 +18,11 @@ h4,
 h5,
 h6 {
   font-family: $font-family-title;
-  color: $text-color;
+  color: var(--text-color);
 }
 
 p {
-  color: $medium-emphasis;
+  color: var(--medium-emphasis);
 }
 
 #root {
@@ -35,4 +35,11 @@ p {
   margin: 0 auto;
   max-width: 1025px;
   margin-top: 60px;
+}
+
+.cls-1 {
+  fill: none;
+  stroke: #020202;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }

@@ -1,58 +1,92 @@
 "use client";
-import React from "react";
-import Image from "next/image";
-import { Github, Linkedin, Twitter } from "lucide-react";
+
+import { useLayoutEffect, useRef, useState } from "react";
+import Illustration from "./Illustration";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import styles from "./Hero.module.scss";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Hero: React.FC = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(true);
+
+  useLayoutEffect(() => {
+    if (!containerRef.current) return;
+
+    const container = containerRef.current;
+    const ctx = gsap.context(() => {}, container);
+
+    ctx.add(() => {
+      // 初期アニメーションのタイムライン
+      const initialTl = gsap.timeline({
+        defaults: { ease: "power3.out", duration: 1 },
+      });
+
+      initialTl
+        .to(".icon", { opacity: 1, y: 0, stagger: 0.1 }, "-=0.5")
+        .to(".title", { opacity: 1, y: 0 }, "-=0.3")
+        .to(".role", { opacity: 1, y: 0, stagger: 0.1 }, "-=0.3")
+        .to(".description", { opacity: 1, y: 0 }, "-=0.3")
+        .to(".illustration", { opacity: 1, duration: 1.5 }, "-=0.5")
+        .to(".socialIcon", { opacity: 1, y: 0, stagger: 0.1 }, "-=1");
+
+      // スクロールアニメーションの設定
+      ScrollTrigger.create({
+        trigger: container,
+        start: "top top",
+        end: "bottom top",
+        pin: true,
+        // marker: true,
+        // onLeave: () => {
+        //   gsap.to(container, {
+        //     opacity: 0, // フェードアウトさせる
+        //     duration: 0.8,
+        //     ease: "power2.out",
+        //   });
+        // },
+        // onEnterBack: () => {
+        //   gsap.to(container, {
+        //     opacity: 1, // フェードインで戻す
+        //     duration: 0.8,
+        //     ease: "power2.out",
+        //   });
+        // },
+      });
+    });
+
+    return () => {
+      ctx.revert();
+    };
+  }, []);
+
+  if (!isVisible) return null;
+
   return (
-    (<section className="container" id="hero">
-      <div className="row border-bottom pb-4">
-        <div className="col-12 col-md-4 col-lg-3">
-          <Image
-            src="/assets/images/headshot.jpg"
-            alt="headshot"
-            width={300}
-            height={300}
-            style={{
-              maxWidth: "100%",
-              height: "auto"
-            }} />
-        </div>
-        <div className="col-12 col-md-8 col-lg-9 d-flex flex-column justify-content-between">
-          <div>
-            <h1>Ayaka Kojima</h1>
-            <div className="mt-2">Front-end Developer & UI designer</div>
-          </div>
-          <ul className="lh-sm">
-            <li>- 4+ years as a Designer & 4+ years as a Front-End Developer</li>
-            <li>- From design to development, providing end-to-end solutions</li>
-            <li>- React.js, Next.js, TypeScript, Figma</li>
-          </ul>
-          <div className="d-flex justify-content-between align-items-center">
-            <ul className="d-flex gap-2">
-              <li>
-                <a href="https://www.linkedin.com/in/ayakakojimaaka/">
-                  <Linkedin size={20} />
-                </a>
-              </li>
-              <li>
-                <a href="https://github.com/ayakakojimaak/">
-                  <Github size={20} />
-                </a>
-              </li>
-              <li>
-                <a href="https://x.com/_em_penguin/">
-                  <Twitter size={20} />
-                </a>
-              </li>
-            </ul>
-            <a className="border-bottom" href="">
-              <span>Download Resume</span>
-            </a>
-          </div>
-        </div>
+    <div className={styles.container} ref={containerRef}>
+      <div className={styles.icons}>
+        <div className={`${styles.icon} icon`}></div>
+        <div className={`${styles.icon} icon`}></div>
       </div>
-    </section>)
+      <div className={styles.content}>
+        <h1 className={`${styles.title} title`}>Hello, I'm Ayaka Kojima</h1>
+        <h2 className={`${styles.role} role`}>FRONT-END DEVELOPER</h2>
+        <h2 className={`${styles.role} role`}>UI DESIGNER</h2>
+        <p className={`${styles.description} description`}>
+          As a Front-End Developer with over 4 years of experience and a background as a graphic designer for 4+ years,
+          I combine technical expertise with a strong design sensibility to create user-friendly and visually engaging
+          digital experiences. Starting my career in graphic design, I developed an in-depth understanding of user
+          interface, which now informs my work in front-end development.
+        </p>
+      </div>
+      <Illustration />
+      <div className={styles.socialIcons}>
+        <div className={`${styles.socialIcon} socialIcon`}></div>
+        <div className={`${styles.socialIcon} socialIcon`}></div>
+        <div className={`${styles.socialIcon} socialIcon`}></div>
+      </div>
+    </div>
   );
 };
 

@@ -1,6 +1,7 @@
 import React from "react";
 // import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import Summary from "@/components/Summary";
 import SidebarSection from "@/components/SidebarSection";
 import SideberSocial from "@/components/SidebarSocial";
 import AboutMe from "@/components/AboutMe";
@@ -25,12 +26,15 @@ const sectionOrder: Section[] = [
 
 export default function Home() {
   return (
-    <div id="main">
+    <div>
       <Hero />
-      <AboutMe />
-      <Project />
-      <Skills />
-      <Experience />
+      <main id="main">
+        <Summary />
+        <AboutMe />
+        <Project />
+        <Skills />
+        <Experience />
+      </main>
       <SidebarSection sectionOrder={sectionOrder} />
       <SideberSocial />
     </div>
