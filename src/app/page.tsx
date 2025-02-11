@@ -6,7 +6,7 @@ import SideberSocial from "@/components/SidebarSocial";
 import AboutMe from "@/components/AboutMe";
 import Project from "@/components/Project";
 import Experience from "@/components/Experience";
-import Skill from "@/components/Skill";
+import Skills from "@/components/Skills";
 import { Section } from "lucide-react";
 
 interface Section {
@@ -29,7 +29,7 @@ export default function Home() {
       <Hero />
       <AboutMe />
       <Project />
-      <Skill />
+      <Skills />
       <Experience />
       <SidebarSection sectionOrder={sectionOrder} />
       <SideberSocial />

@@ -1,5 +1,6 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
+import Image from "next/image";
 import { Github, Linkedin, Twitter } from "lucide-react";
 
 const Hero: React.FC = () => {
@@ -7,7 +8,7 @@ const Hero: React.FC = () => {
     <>
       <section className="container" id="hero">
         <div className="row border-bottom pb-4">
-          <img className="col-12 col-md-4 col-lg-3" src="/assets/images/headshot.jpg" alt="headshot" />
+          <Image className="col-12 col-md-4 col-lg-3" src="/assets/images/headshot.jpg" alt="headshot" />
           <div className="col-12 col-md-8 col-lg-9 d-flex flex-column justify-content-between">
             <div>
               <h1>Ayaka Kojima</h1>

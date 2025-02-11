@@ -1,5 +1,4 @@
 import React from "react";
-import { Section } from "@/app/page";
 import { Github, Linkedin, Instagram, Twitter } from "lucide-react";
 import styles from "./Sidebar.module.scss";
 

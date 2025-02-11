@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Image from "next/image";
 import { Modal, Button, Card, Row, Col } from "react-bootstrap";
 
 interface Project {
@@ -77,7 +78,9 @@ const Project: React.FC = () => {
           <Modal.Title>{selectedProject?.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <img src={selectedProject?.image} alt={selectedProject?.title} className="img-fluid mb-3" />
+          {selectedProject?.image && (
+            <Image src={selectedProject.image} alt={selectedProject.title} className="img-fluid mb-3" />
+          )}
           <p>{selectedProject?.description}</p>
         </Modal.Body>
         <Modal.Footer>
