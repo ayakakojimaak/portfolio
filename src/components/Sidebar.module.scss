@@ -1,3 +1,5 @@
+@import "../styles/partials/variables";
+
 $icon-size: 25px;
 
 .social {
@@ -5,44 +7,68 @@ $icon-size: 25px;
 }
 
 @media screen and (min-width: 1025px) {
-  .container {
-    display: flex;
-    flex-direction: column;
+  .sidebarContainer {
     position: fixed;
-    height: 100vh;
-    justify-content: space-between;
-    bottom: 0px;
     left: 3vw;
+    top: 3vw;
+    z-index: 100;
   }
 
-  .social {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    width: $icon-size;
-    gap: 10px;
-    svg {
-      stroke: #1fc3cf;
-    }
-    &::after {
-      content: "";
-      display: block;
-      width: 2px;
-      height: 90px;
-      margin: 0px auto;
-      background-color: #1fc3cf;
+  .sectionList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sectionItem {
+    margin-bottom: 10px;
+
+    a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      &:hover,
+      &.active {
+        color: $primary-color;
+      }
     }
   }
 
-  .nav {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    width: $icon-size;
-    padding-top: 3vw;
-    gap: 10px;
+  .sectionKey {
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 10px;
+    opacity: 0.5;
   }
-  .navTitle {
-    writing-mode: sideways-lr;
+
+  .sectionTitle {
+    font-size: 16px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .socialContainer {
+    position: fixed;
+    bottom: 0px;
+    right: 3vw;
+
+    .social {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      width: $icon-size;
+      gap: 10px;
+      svg {
+        stroke: $primary-color;
+      }
+      &::after {
+        content: "";
+        display: block;
+        width: 2px;
+        height: 90px;
+        margin: 0px auto;
+        background-color: $primary-color;
+      }
+    }
   }
 }

@@ -3,23 +3,9 @@ import { Section } from "@/app/page";
 import { Github, Linkedin, Instagram, Twitter } from "lucide-react";
 import styles from "./Sidebar.module.scss";
 
-interface SidebarProps {
-  sectionOrder: Section[];
-}
-
-const Sidebar: React.FC<SidebarProps> = ({ sectionOrder }) => {
+const Sidebar: React.FC = () => {
   return (
-    <nav className={styles.container}>
-      <ul className={styles.nav}>
-        {sectionOrder.map((section: Section) => (
-          <li key={section.key}>
-            <a href={`#${section.slug}`}>
-              <span className={styles.navKey}>{section.key}</span>
-              <span className={styles.navTitle}>{section.title}</span>
-            </a>
-          </li>
-        ))}
-      </ul>
+    <nav className={styles.socialContainer}>
       <ul className={styles.social}>
         <li>
           <a href="https://github.com/ayakakojimaak">

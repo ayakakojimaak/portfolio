@@ -1,7 +1,8 @@
 import React from "react";
 // import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Sidebar from "@/components/Sidebar";
+import SidebarSection from "@/components/SidebarSection";
+import SideberSocial from "@/components/SidebarSocial";
 import AboutMe from "@/components/AboutMe";
 import Project from "@/components/Project";
 import Experience from "@/components/Experience";
@@ -30,7 +31,8 @@ export default function Home() {
       <Project />
       <Skill />
       <Experience />
-      <Sidebar sectionOrder={sectionOrder} />
+      <SidebarSection sectionOrder={sectionOrder} />
+      <SideberSocial />
     </div>
   );
 }
