@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { Modal, Button, Card, Row, Col } from "react-bootstrap";
 
 interface Project {
@@ -71,7 +71,6 @@ const Project: React.FC = () => {
           </Col>
         ))}
       </Row>
-
       {/* Modal for project details */}
       <Modal show={show} onHide={handleClose} centered>
         <Modal.Header closeButton>
@@ -84,7 +83,10 @@ const Project: React.FC = () => {
               alt={selectedProject.title}
               width={300}
               height={300}
-              layout="intrinsic"
+              style={{
+                maxWidth: "100%",
+                height: "auto",
+              }}
             />
           )}
           <p>{selectedProject?.description}</p>

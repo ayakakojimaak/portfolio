@@ -1,14 +1,22 @@
 "use client";
 import React from "react";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { Github, Linkedin, Twitter } from "lucide-react";
 
 const Hero: React.FC = () => {
   return (
-    <section className="container" id="hero">
+    (<section className="container" id="hero">
       <div className="row border-bottom pb-4">
         <div className="col-12 col-md-4 col-lg-3">
-          <Image src="/assets/images/headshot.jpg" alt="headshot" width={300} height={300} layout="intrinsic" />
+          <Image
+            src="/assets/images/headshot.jpg"
+            alt="headshot"
+            width={300}
+            height={300}
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }} />
         </div>
         <div className="col-12 col-md-8 col-lg-9 d-flex flex-column justify-content-between">
           <div>
@@ -44,7 +52,7 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
+    </section>)
   );
 };
 
