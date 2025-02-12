@@ -36,7 +36,8 @@ const Hero: React.FC = () => {
       initialTl
         .to(".title", { opacity: 1, y: 0 }, "-=0.3")
         .to(".role", { opacity: 1, y: 0, stagger: 0.1 }, "-=0.3")
-        .to(".description", { opacity: 1, y: 0 }, "-=0.3");
+        .to(".description", { opacity: 1, y: 0 }, "-=0.3")
+        .to(".contact", { opacity: 1, y: 0 }, "-=0.3");
 
       ScrollTrigger.create({
         trigger: container,
@@ -70,7 +71,7 @@ const Hero: React.FC = () => {
         <h2 className={`${styles.role} role`}>{t.hero.role1}</h2>
         <h2 className={`${styles.role} role`}>{t.hero.role2}</h2>
         <p className={`${styles.description} description`}>{t.hero.description}</p>
-        <a href={t.hero.link} target="_blank" rel="noopener noreferrer" className={styles.contact}>
+        <a className={`${styles.contact} contact`} href={t.hero.link} target="_blank" rel="noopener noreferrer">
           <span>{t.hero.contact}</span>
           <ExternalLink width={20} />
         </a>

@@ -55,6 +55,7 @@
     line-height: 1.6;
     opacity: 0;
     transform: translateY(20px);
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -73,4 +74,8 @@
     opacity: 0;
     transform: translateY(20px);
   }
+}
+
+.contact {
+  opacity: 0;
 }
