@@ -4,7 +4,7 @@ import styles from "./Sidebar.module.scss";
 
 const Sidebar: React.FC = () => {
   return (
-    <nav className={styles.socialContainer}>
+    <div className={styles.socialContainer}>
       <ul className={styles.social}>
         <li>
           <a href="https://github.com/ayakakojimaak">
@@ -27,7 +27,7 @@ const Sidebar: React.FC = () => {
           </a>
         </li>
       </ul>
-    </nav>
+    </div>
   );
 };
 

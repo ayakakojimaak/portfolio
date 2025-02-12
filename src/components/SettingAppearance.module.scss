@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  gap: 1rem;
+  position: fixed;
+  top: 3vw;
+  right: 3vw;
+  z-index: 1000;
+}
+
+.switcherButton {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+}
+
+.switcherButtonLang {
+  width: 1.6rem;
+  font-size: 0.9rem;
+  color: var(--text-color);
+  font-weight: 500;
+}

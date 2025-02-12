@@ -9,7 +9,7 @@ $icon-size: 25px;
     position: fixed;
     left: 3vw;
     top: 3vw;
-    z-index: 100;
+    z-index: 1000;
   }
 
   .sectionList {
@@ -49,6 +49,7 @@ $icon-size: 25px;
     position: fixed;
     bottom: 0px;
     right: 3vw;
+    z-index: 1000;
 
     .social {
       display: flex;
@@ -56,16 +57,13 @@ $icon-size: 25px;
       text-align: center;
       width: $icon-size;
       gap: 10px;
-      svg {
-        stroke: var(--primary-color);
-      }
       &::after {
         content: "";
         display: block;
-        width: 2px;
+        width: 1.5px;
         height: 90px;
         margin: 0px auto;
-        background-color: var(--primary-color);
+        background-color: var(--text-color);
       }
     }
   }

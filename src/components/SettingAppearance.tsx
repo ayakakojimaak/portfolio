@@ -1,19 +1,32 @@
-// import React from "react";
-// import { useTheme } from "./ThemeContext";
-// import { Lightbulb, LightbulbOff } from "lucide-react";
-// import styles from "./SettingAppearance.module.css";
+"use client";
 
-// const SettingAppearance: React.FC = () => {
-//   const { theme, toggleTheme } = useTheme();
+import React from "react";
+import { Sun, Moon, Globe } from "lucide-react";
+import { useLanguage } from "@/context/language-context";
+import { useTheme } from "next-themes";
+import styles from "./SettingAppearance.module.scss";
 
-//   return (
-//     <div className={styles.container}>
-//       <button className={styles.btn} onClick={toggleTheme}>
-//         {theme === "light" ? <Lightbulb size={22} /> : <LightbulbOff size={22} />}
-//       </button>
-//       <button className={styles.btn}>EN</button>
-//     </div>
-//   );
-// };
+const SettingAppearance: React.FC = () => {
+  const { language, setLanguage } = useLanguage();
+  const { resolvedTheme, setTheme } = useTheme();
+  const toggleTheme = () => {
+    setTheme(resolvedTheme === "light" ? "dark" : "light");
+  };
 
-// export default SettingAppearance;
+  return (
+    <div className={styles.container}>
+      <button className={styles.switcherButton} onClick={toggleTheme} aria-label="Toggle theme">
+        {resolvedTheme === "light" ? <Moon size={22} /> : <Sun size={22} />}
+      </button>
+      <button
+        className={styles.switcherButton}
+        onClick={() => setLanguage(language === "en" ? "ja" : "en")}
+        aria-label="Toggle language">
+        <Globe size={21} />
+        <span className={styles.switcherButtonLang}>{language === "en" ? "JA" : "EN"}</span>
+      </button>
+    </div>
+  );
+};
+
+export default SettingAppearance;

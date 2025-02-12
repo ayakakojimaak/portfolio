@@ -37,9 +37,15 @@ p {
   margin-top: 60px;
 }
 
+svg {
+  stroke: var(--text-color);
+  stroke-width: 1.6px;
+}
+
 .cls-1 {
   fill: none;
-  stroke: #020202;
+  stroke: var(--text-color);
   stroke-linecap: round;
   stroke-linejoin: round;
+  stroke-width: 1px;
 }

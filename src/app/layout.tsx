@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { ThemeProvider } from "@/components/theme-provider";
+import { LanguageProvider } from "@/context/language-context";
 import { Lora, Inter } from "next/font/google";
 import "@/styles/globals.scss";
 
@@ -24,7 +26,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={lora.variable}>
-      <body className={inter.className}>{children}</body>
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <LanguageProvider>
+          <body className={inter.className}>{children}</body>
+        </LanguageProvider>
+      </ThemeProvider>
     </html>
   );
 }

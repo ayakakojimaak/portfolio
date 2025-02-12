@@ -6,7 +6,7 @@ $primary-color-light: #1fc3cf;
 $low-emphasis-light: #eff4f7;
 $medium-emphasis-light: #828282;
 $background-color-light: #fbfeff;
-$text-color-light: #25282b;
+$text-color-light: #121314;
 
 // Dark Mode Colors
 $primary-color-dark: #1fc3cf;
@@ -23,12 +23,10 @@ $text-color-dark: #e0e0e0;
   --text-color: #{$text-color-light};
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --primary-color: #{$primary-color-dark};
-    --low-emphasis: #{$low-emphasis-dark};
-    --medium-emphasis: #{$medium-emphasis-dark};
-    --background-color: #{$background-color-dark};
-    --text-color: #{$text-color-dark};
-  }
+html.dark {
+  --primary-color: #{$primary-color-dark};
+  --low-emphasis: #{$low-emphasis-dark};
+  --medium-emphasis: #{$medium-emphasis-dark};
+  --background-color: #{$background-color-dark};
+  --text-color: #{$text-color-dark};
 }

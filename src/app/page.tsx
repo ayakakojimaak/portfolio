@@ -34,9 +34,9 @@ export default function Home() {
         <Project />
         <Skills />
         <Experience />
+        <SidebarSection sectionOrder={sectionOrder} />
+        <SideberSocial />
       </main>
-      <SidebarSection sectionOrder={sectionOrder} />
-      <SideberSocial />
     </div>
   );
 }
