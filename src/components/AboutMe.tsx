@@ -1,8 +1,11 @@
+import React from "react";
+import Image from "next/image";
+
 const AboutMe: React.FC = () => {
   return (
     <section className="container" id="about-me">
       <div className="row">
-        <div className="col-12">
+        <div className="col-6">
           <h2>
             <span className="section-number">01</span>
             <span>About Me</span>
@@ -30,6 +33,18 @@ const AboutMe: React.FC = () => {
             And of course, I love spending time with my cat 🐱 <br />
             He is perfect coding partner!
           </p>
+        </div>
+        <div className="col-6">
+          <Image
+            src="/assets/images/aboutme.png"
+            alt="headshot"
+            width={300}
+            height={300}
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+            }}
+          />
         </div>
       </div>
     </section>

@@ -19,12 +19,14 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     const savedLanguage = localStorage.getItem("language") as Language;
     if (savedLanguage) {
       setLanguage(savedLanguage);
+      document.documentElement.lang = savedLanguage;
     }
   }, []);
 
   const handleLanguageChange = (lang: Language) => {
     setLanguage(lang);
     localStorage.setItem("language", lang);
+    document.documentElement.lang = lang;
   };
 
   return (

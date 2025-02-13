@@ -30,3 +30,10 @@ html.dark {
   --background-color: #{$background-color-dark};
   --text-color: #{$text-color-dark};
 }
+
+html:lang(ja) {
+  p,
+  li {
+    font-size: 0.9rem;
+  }
+}
