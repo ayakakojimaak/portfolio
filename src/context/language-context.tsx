@@ -1,6 +1,9 @@
+// src/context/language-context.tsx
 "use client";
 
-import { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
+import { I18nextProvider, useTranslation } from "react-i18next";
+import i18n from "@/locals/i18n";
 
 type Language = "en" | "ja";
 
@@ -15,22 +18,25 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguage] = useState<Language>("en");
 
   useEffect(() => {
-    // ローカルストレージから言語設定を読み込む
     const savedLanguage = localStorage.getItem("language") as Language;
     if (savedLanguage) {
       setLanguage(savedLanguage);
+      i18n.changeLanguage(savedLanguage);
     }
   }, []);
 
   const handleLanguageChange = (lang: Language) => {
     setLanguage(lang);
     localStorage.setItem("language", lang);
+    i18n.changeLanguage(lang);
   };
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage: handleLanguageChange }}>
-      {children}
-    </LanguageContext.Provider>
+    <I18nextProvider i18n={i18n}>
+      <LanguageContext.Provider value={{ language, setLanguage: handleLanguageChange }}>
+        {children}
+      </LanguageContext.Provider>
+    </I18nextProvider>
   );
 }
 

@@ -1,10 +1,11 @@
+// Summary.tsx
 "use client";
 import React from "react";
 import Image from "next/image";
-import { useTranslation } from "@/components/hooks/useTranslation";
+import { useTranslation } from "react-i18next";
 
 const Summary: React.FC = () => {
-  const t = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <section className="container" id="summary">
@@ -23,13 +24,13 @@ const Summary: React.FC = () => {
         </div>
         <div className="col-12 col-md-8 col-lg-9 d-flex flex-column justify-content-between">
           <div>
-            <h1>{t.summary.title}</h1>
-            <div className="mt-2">{t.summary.role}</div>
+            <h1>{t("summary.title")}</h1>
+            <div className="mt-2">{t("summary.role")}</div>
           </div>
           <ul className="lh-sm">
-            {t.summary.experience.map((item, index) => (
+            {/* {t("summary.experience", { returnObjects: true }).map((item: string, index: number) => (
               <li key={index}>- {item}</li>
-            ))}
+            ))} */}
           </ul>
           <div className="d-flex justify-content-between align-items-center">
             <a className="border-bottom" href="">

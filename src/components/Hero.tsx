@@ -2,7 +2,7 @@
 
 import { useLayoutEffect, useRef } from "react";
 import { useTheme } from "next-themes";
-import { useTranslation } from "@/components/hooks/useTranslation";
+import { useTranslation } from "react-i18next";
 import SettingAppearance from "@/components/SettingAppearance";
 import Illustration from "./Illustration";
 import { ExternalLink } from "lucide-react";
@@ -16,7 +16,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { theme } = useTheme();
-  const t = useTranslation();
+  const { t } = useTranslation();
 
   useLayoutEffect(() => {
     if (!containerRef.current) return;
@@ -63,12 +63,12 @@ const Hero: React.FC = () => {
     <div id="hero" className={`${styles.container} ${theme === "dark" ? styles.dark : ""}`} ref={containerRef}>
       <SettingAppearance />
       <div className={styles.content}>
-        <h1 className={`${styles.title} title`}>{t.hero.title}</h1>
-        <h2 className={`${styles.role} role`}>{t.hero.role1}</h2>
-        <h2 className={`${styles.role} role`}>{t.hero.role2}</h2>
-        <p className={`${styles.description} description`}>{t.hero.description}</p>
-        <a className={`${styles.contact} contact`} href={t.hero.link} target="_blank" rel="noopener noreferrer">
-          <span>{t.hero.contact}</span>
+        <h1 className={`${styles.title} title`}>{t("hero.title")}</h1>
+        <h2 className={`${styles.role} role`}>{t("hero.role1")}</h2>
+        <h2 className={`${styles.role} role`}>{t("hero.role2")}</h2>
+        <p className={`${styles.description} description`}>{t("hero.description")}</p>
+        <a className={`${styles.contact} contact`} href={t("hero.link")} target="_blank" rel="noopener noreferrer">
+          <span>{t("hero.contact")}</span>
           <ExternalLink width={20} />
         </a>
       </div>

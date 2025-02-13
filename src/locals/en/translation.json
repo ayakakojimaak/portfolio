@@ -1,0 +1,21 @@
+{
+  "hero": {
+    "title": "Hello, I'm Ayaka Kojima",
+    "role1": "FRONT-END DEVELOPER",
+    "role2": "UI DESIGNER",
+    "description": "As a Front-End Developer with over 4 years of experience and a background as a graphic designer for 4+ years, I combine technical expertise with a strong design sensibility to create user-friendly and visually engaging digital experiences.",
+    "contact": "LinkedIn",
+    "link": "https://www.linkedin.com/in/ayaka-kojima/"
+  },
+  "summary": {
+    "title": "Ayaka Kojima",
+    "role": "Front-end Developer & UI Designer",
+    "experience": [
+      "4+ years as a Designer & 4+ years as a Front-End Developer",
+      "From design to development, providing end-to-end solutions",
+      "React.js, Next.js, TypeScript, Figma"
+    ],
+    "resume": "Download Resume",
+    "link": ""
+  }
+}
