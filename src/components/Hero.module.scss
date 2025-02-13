@@ -30,7 +30,7 @@
 .content {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 60%;
   transform: translate(-50%, -50%);
   width: 100%;
   max-width: 1200px;
@@ -51,11 +51,11 @@
   }
 
   .description {
-    max-width: 600px;
+    max-width: 480px;
     line-height: 1.6;
     opacity: 0;
     transform: translateY(20px);
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
   }
 }
 

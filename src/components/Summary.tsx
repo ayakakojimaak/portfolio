@@ -1,9 +1,11 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { useTranslation } from "@/components/hooks/useTranslation";
 
 const Summary: React.FC = () => {
+  const t = useTranslation();
+
   return (
     <section className="container" id="summary">
       <div className="row border-bottom pb-4">
@@ -21,32 +23,15 @@ const Summary: React.FC = () => {
         </div>
         <div className="col-12 col-md-8 col-lg-9 d-flex flex-column justify-content-between">
           <div>
-            <h1>Ayaka Kojima</h1>
-            <div className="mt-2">Front-end Developer & UI designer</div>
+            <h1>{t.summary.title}</h1>
+            <div className="mt-2">{t.summary.role}</div>
           </div>
           <ul className="lh-sm">
-            <li>- 4+ years as a Designer & 4+ years as a Front-End Developer</li>
-            <li>- From design to development, providing end-to-end solutions</li>
-            <li>- React.js, Next.js, TypeScript, Figma</li>
+            {t.summary.experience.map((item, index) => (
+              <li key={index}>- {item}</li>
+            ))}
           </ul>
           <div className="d-flex justify-content-between align-items-center">
-            <ul className="d-flex gap-2">
-              <li>
-                <a href="https://www.linkedin.com/in/ayakakojimaaka/">
-                  <Linkedin size={20} />
-                </a>
-              </li>
-              <li>
-                <a href="https://github.com/ayakakojimaak/">
-                  <Github size={20} />
-                </a>
-              </li>
-              <li>
-                <a href="https://x.com/_em_penguin/">
-                  <Twitter size={20} />
-                </a>
-              </li>
-            </ul>
             <a className="border-bottom" href="">
               <span>Download Resume</span>
             </a>

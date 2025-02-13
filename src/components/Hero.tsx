@@ -2,8 +2,7 @@
 
 import { useLayoutEffect, useRef } from "react";
 import { useTheme } from "next-themes";
-import { useLanguage } from "@/context/language-context";
-import { translations } from "@/locales/translations";
+import { useTranslation } from "@/components/hooks/useTranslation";
 import SettingAppearance from "@/components/SettingAppearance";
 import Illustration from "./Illustration";
 import { ExternalLink } from "lucide-react";
@@ -16,11 +15,8 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { language } = useLanguage();
   const { theme } = useTheme();
-
-  // 現在の言語の翻訳データを取得
-  const t = translations[language];
+  const t = useTranslation();
 
   useLayoutEffect(() => {
     if (!containerRef.current) return;

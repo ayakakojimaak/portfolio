@@ -4,7 +4,7 @@ const AboutMe: React.FC = () => {
       <div className="row">
         <div className="col-12">
           <h2>
-            <span>01</span>
+            <span className="section-number">01</span>
             <span>About Me</span>
           </h2>
           <p>

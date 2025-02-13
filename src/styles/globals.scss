@@ -33,7 +33,7 @@ p {
 #main {
   min-height: 100vh;
   margin: 0 auto;
-  max-width: 1025px;
+  max-width: 900px;
   margin-top: 60px;
 }
 
@@ -42,10 +42,23 @@ svg {
   stroke-width: 1.6px;
 }
 
+// temp
 .cls-1 {
   fill: none;
   stroke: var(--text-color);
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 1px;
+}
+#illustration {
+  position: absolute;
+  left: 10%;
+  top: -1px;
+}
+
+.section-number {
+  color: #fff;
+  -webkit-text-stroke: 1px var(--text-color);
+  text-stroke: var(--text-color);
+  font-size: 90px;
 }

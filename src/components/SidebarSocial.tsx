@@ -39,7 +39,7 @@ const Sidebar: React.FC = () => {
     tl.fromTo(
       socialRefs.current, // アニメーション対象の要素の配列
       { opacity: 0, y: 20 }, // 初期値
-      { opacity: 1, y: 0, duration: 0.5, stagger: 1, ease: "power2.out" }, // 最終値, 遅延, イージング
+      { opacity: 1, y: 0, duration: 3, stagger: 1, ease: "power2.out" }, // 最終値, 遅延, イージング
       "+=0.2" // timelineの開始位置
     );
   }, []);
