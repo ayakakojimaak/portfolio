@@ -17,13 +17,19 @@ const SidebarSection: React.FC<SidebarProps> = ({ sectionOrder }) => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const sidebarRef = useRef<HTMLElement>(null);
   const navItemsRef = useRef<HTMLLIElement[]>([]);
+  const [primaryColor, setPrimaryColor] = useState<string>("#000");
+  const [textColor, setTextColor] = useState<string>("#fff");
 
-  // CSS変数を取得する関数
-  const getCSSVariable = (varName: string) =>
-    getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+  // クライアント側でのみ CSS 変数を取得
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const getCSSVariable = (varName: string) =>
+        getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
 
-  const primaryColor = getCSSVariable("--primary-color");
-  const textColor = getCSSVariable("--text-color");
+      setPrimaryColor(getCSSVariable("--primary-color") || "#000");
+      setTextColor(getCSSVariable("--text-color") || "#fff");
+    }
+  }, []);
 
   // 初回読み込み時のアニメーション
   useLayoutEffect(() => {
