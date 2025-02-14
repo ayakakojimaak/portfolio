@@ -8,7 +8,7 @@ const Summary: React.FC = () => {
 
   return (
     <section className="container" id="summary">
-      <div className="row border-bottom pb-4">
+      <div className="row">
         <div className="col-12 col-md-4 col-lg-3">
           <Image
             src="/assets/images/headshot.jpg"

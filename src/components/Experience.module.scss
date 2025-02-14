@@ -4,9 +4,22 @@
   padding: 2rem 1rem;
 }
 
+.sectionTitle {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  span:first-child {
+    font-size: 1.5rem;
+    color: #666;
+  }
+}
+
 .experienceItem {
   padding: 1.5rem 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #eaeaea;
 
   &:last-child {
     border-bottom: none;
@@ -22,15 +35,6 @@
 
 .headerLeft {
   flex: 1;
-}
-
-.location {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: #666;
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
 }
 
 .company {

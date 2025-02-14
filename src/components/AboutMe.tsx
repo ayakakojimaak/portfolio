@@ -9,9 +9,9 @@ const AboutMe: React.FC = () => {
   return (
     <section className="container" id="about-me">
       <div className="row">
-        <div className="col-6">
+        <div className="col-12">
           <h2>
-            <span className="section-number">01</span>
+            {/* <span className="section-number">01</span> */}
             <span>About Me</span>
           </h2>
           <h4>
@@ -20,7 +20,7 @@ const AboutMe: React.FC = () => {
             Let&apos;s create something great together!
           </h4>
         </div>
-        <div className="col-6">
+        <div className="col-8">
           <p>{t.about.description}</p>
         </div>
         {/* <div className="col-6">

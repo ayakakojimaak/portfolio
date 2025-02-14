@@ -1,6 +1,11 @@
 "use client";
-import React from "react";
+
+import { useEffect, useRef } from "react";
 import styles from "./Experience.module.scss";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface Experience {
   id: number;
@@ -10,7 +15,6 @@ interface Experience {
   details: string[];
   images?: string[];
 }
-
 const experiences: Experience[] = [
   {
     id: 1,
@@ -62,15 +66,60 @@ const experiences: Experience[] = [
 ];
 
 const Experience = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const experienceRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    if (sectionRef.current) {
+      gsap.fromTo(
+        sectionRef.current,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+          },
+        }
+      );
+
+      experienceRefs.current.forEach((item, index) => {
+        if (item) {
+          gsap.fromTo(
+            item,
+            { opacity: 0, y: 50 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              delay: index * 0.2,
+              scrollTrigger: {
+                trigger: item,
+                start: "top 90%",
+              },
+            }
+          );
+        }
+      });
+    }
+  }, []);
+
   return (
-    <section className={styles.experienceSection} id="experience">
-      <h2 className="mb-3">
+    <section className={styles.experienceSection} id="experience" ref={sectionRef}>
+      <h2 className={styles.sectionTitle}>
         <span>04</span>
         <span>Experience</span>
       </h2>
 
-      {experiences.map((exp) => (
-        <div key={exp.id} className={styles.experienceItem}>
+      {experiences.map((exp, index) => (
+        <div
+          key={exp.id}
+          className={styles.experienceItem}
+          ref={(el) => {
+            experienceRefs.current[index] = el;
+          }}>
           <div className={styles.header}>
             <div className={styles.headerLeft}>
               <h3 className={styles.company}>{exp.company}</h3>
