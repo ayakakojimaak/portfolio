@@ -50,7 +50,7 @@ const SidebarSection: React.FC<SidebarProps> = ({ sectionOrder }) => {
 
   // ホバー & アクティブ時のアニメーション
   useEffect(() => {
-    navItemsRef.current.forEach((item, index) => {
+    navItemsRef.current.forEach((item) => {
       if (!item) return;
 
       const hoverAnim = gsap.to(item, {

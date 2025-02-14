@@ -1,7 +1,11 @@
+"use client";
 import React from "react";
-import Image from "next/image";
+// import Image from "next/image";
+import { useTranslation } from "@/components/hooks/useTranslation";
 
 const AboutMe: React.FC = () => {
+  const t = useTranslation();
+
   return (
     <section className="container" id="about-me">
       <div className="row">
@@ -10,31 +14,16 @@ const AboutMe: React.FC = () => {
             <span className="section-number">01</span>
             <span>About Me</span>
           </h2>
-          <p>
-            Are you seeking a Front-End Developer who produces clean and has a knowledge of design?
+          <h4>
+            Looking for a Front-End Developer with design knowledge?
             <br />
-            If so, let’s build something great together!
-            <br />
-            <br />
-            Hi there 👋
-            <br />
-            I’m Ayaka Kojima. I have 8 years of experience as a Front-End Developer and UI Designer. I combine beauty
-            and function to create digital products. My expertise also helps design and development teams work together,
-            which leads to strong and successful results.
-            <br />
-            <br />
-            When I’m not coding, I love exploring new design ideas, experimenting with new tools and technologies, and
-            finding creative ways to improve how users interact.
-            <br />
-            <br />
-            Outside of work, I enjoy sketching, watching movies, and practicing martial arts like MMA and Brazilian
-            Jiu-Jitsu.
-            <br />
-            And of course, I love spending time with my cat 🐱 <br />
-            He is perfect coding partner!
-          </p>
+            Let&apos;s create something great together!
+          </h4>
         </div>
         <div className="col-6">
+          <p>{t.about.description}</p>
+        </div>
+        {/* <div className="col-6">
           <Image
             src="/assets/images/aboutme.png"
             alt="headshot"
@@ -45,7 +34,7 @@ const AboutMe: React.FC = () => {
               height: "auto",
             }}
           />
-        </div>
+        </div> */}
       </div>
     </section>
   );
