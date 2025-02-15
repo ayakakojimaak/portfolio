@@ -21,7 +21,7 @@ const AboutMe: React.FC = () => {
           </h4>
         </div>
         <div className="col-8">
-          <p>{t.about.description}</p>
+          <p dangerouslySetInnerHTML={{ __html: t.about.description.replace(/\n/g, "<br />") }}></p>
         </div>
         {/* <div className="col-6">
           <Image
