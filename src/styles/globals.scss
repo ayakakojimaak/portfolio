@@ -2,6 +2,29 @@
 @import "./partials/reset";
 @import "./partials/variables";
 
+:root {
+  --primary-color: #{$primary-color-light};
+  --low-emphasis: #{$low-emphasis-light};
+  --medium-emphasis: #{$medium-emphasis-light};
+  --background-color: #{$background-color-light};
+  --text-color: #{$text-color-light};
+}
+
+html.dark {
+  --primary-color: #{$primary-color-dark};
+  --low-emphasis: #{$low-emphasis-dark};
+  --medium-emphasis: #{$medium-emphasis-dark};
+  --background-color: #{$background-color-dark};
+  --text-color: #{$text-color-dark};
+}
+
+html:lang(ja) {
+  p,
+  li {
+    font-size: 0.9rem;
+  }
+}
+
 body {
   font-family: $font-family-text;
   color: var(--text-color);
@@ -50,15 +73,27 @@ svg {
   stroke-linejoin: round;
   stroke-width: 1px;
 }
+
 #illustration {
   position: absolute;
   left: 10%;
   top: -1px;
 }
 
+@media (max-width: #{$breakpoint-sm}) {
+  .cls-1 {
+    stroke-width: 2px;
+  }
+  #illustration {
+    position: absolute;
+    left: 0;
+    top: 3rem;
+  }
+}
+
 .section-number {
   color: #fff;
-  -webkit-text-stroke: 1px var(--text-color);
+  -webkit-text-stroke: 1px var(--text-codlor);
   text-stroke: var(--text-color);
   font-size: 90px;
 }

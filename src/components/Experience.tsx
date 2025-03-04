@@ -25,7 +25,6 @@ const Experience = () => {
           scrollTrigger: {
             trigger: sectionRef.current,
             start: "top bottom",
-            markers: true,
           },
         }
       );

@@ -1,6 +1,11 @@
 $font-family-title: var(--font-lora), sans-serif;
 $font-family-text: var(--font-inter), sans-serif;
 
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
 // Light Mode Colors
 $primary-color-light: #1fc3cf;
 $low-emphasis-light: #eff4f7;
@@ -14,26 +19,3 @@ $low-emphasis-dark: #eff4f7;
 $medium-emphasis-dark: #b6b6b6;
 $background-color-dark: #121212;
 $text-color-dark: #e0e0e0;
-
-:root {
-  --primary-color: #{$primary-color-light};
-  --low-emphasis: #{$low-emphasis-light};
-  --medium-emphasis: #{$medium-emphasis-light};
-  --background-color: #{$background-color-light};
-  --text-color: #{$text-color-light};
-}
-
-html.dark {
-  --primary-color: #{$primary-color-dark};
-  --low-emphasis: #{$low-emphasis-dark};
-  --medium-emphasis: #{$medium-emphasis-dark};
-  --background-color: #{$background-color-dark};
-  --text-color: #{$text-color-dark};
-}
-
-html:lang(ja) {
-  p,
-  li {
-    font-size: 0.9rem;
-  }
-}

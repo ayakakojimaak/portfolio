@@ -1,9 +1,11 @@
+@use "../styles/partials/variables" as variables;
+
 .container {
   display: flex;
   gap: 1rem;
   position: fixed;
-  top: 3vw;
-  right: 3vw;
+  top: 3rem;
+  right: 3rem;
   z-index: 1000;
 }
 
@@ -21,4 +23,17 @@
   font-size: 0.9rem;
   color: var(--text-color);
   font-weight: 500;
+}
+
+@media (max-width: variables.$breakpoint-md) {
+  .container {
+    top: 2rem;
+    right: 2rem;
+  }
+}
+@media (max-width: variables.$breakpoint-sm) {
+  .container {
+    top: 1.4rem;
+    right: 1rem;
+  }
 }

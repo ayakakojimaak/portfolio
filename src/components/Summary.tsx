@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { useTranslation } from "@/components/hooks/useTranslation";
+import Link from "next/link";
 
 const Summary: React.FC = () => {
   const t = useTranslation();
@@ -32,9 +33,9 @@ const Summary: React.FC = () => {
             ))}
           </ul>
           <div className="d-flex justify-content-between align-items-center">
-            <a className="border-bottom" href="">
-              <span>Download Resume</span>
-            </a>
+            <Link className="border-bottom" href={t.summary.link} target="_blank" rel="noopener noreferrer">
+              <span>{t.summary.resume}</span>
+            </Link>
           </div>
         </div>
       </div>

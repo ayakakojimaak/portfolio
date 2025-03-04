@@ -10,16 +10,15 @@ const Illustration: React.FC = () => {
   useEffect(() => {
     if (!pathRef.current) return;
 
-    const paths = pathRef.current.querySelectorAll("path"); // すべてのパスを取得
+    const paths = pathRef.current.querySelectorAll("path");
     paths.forEach((path) => {
       const length = (path as SVGPathElement).getTotalLength();
       gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
     });
 
-    // 順番に描画するアニメーション
     const tl = gsap.timeline();
     paths.forEach((path, index) => {
-      tl.to(path, { strokeDashoffset: 0, duration: 2, ease: "power2.out" }, index * 1); // 1.5秒ごとに開始
+      tl.to(path, { strokeDashoffset: 0, duration: 2, ease: "power2.out" }, index * 1);
     });
   }, []);
 

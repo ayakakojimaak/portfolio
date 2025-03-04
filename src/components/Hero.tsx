@@ -2,6 +2,7 @@
 
 import { useLayoutEffect, useRef } from "react";
 import { useTheme } from "next-themes";
+import Link from "next/link";
 import { useTranslation } from "@/components/hooks/useTranslation";
 import SettingAppearance from "@/components/SettingAppearance";
 import Illustration from "./Illustration";
@@ -35,23 +36,23 @@ const Hero: React.FC = () => {
         .to(".description", { opacity: 1, y: 0 }, "-=0.3")
         .to(".contact", { opacity: 1, y: 0 }, "-=0.3");
 
-      ScrollTrigger.create({
-        trigger: container,
-        start: "top top",
-        end: "bottom center",
-        pin: true,
-        // markers: true,
-        // onLeave: () => {
-        //   gsap.to(window, {
-        //     duration: 0.3, // スクロール時間
-        //     ease: "ease",
-        //     scrollTo: {
-        //       y: "#main",
-        //       autoKill: false, // スクロールの中断を防ぐ
-        //     },
-        //   });
-        // },
-      });
+      // ScrollTrigger.create({
+      //   trigger: container,
+      //   start: "top top",
+      //   end: "bottom center",
+      //   pin: true,
+      //   markers: true,
+      //   onLeave: () => {
+      //     gsap.to(window, {
+      //       duration: 0.3, // スクロール時間
+      //       ease: "ease",
+      //       scrollTo: {
+      //         y: "#main",
+      //         autoKill: false, // スクロールの中断を防ぐ
+      //       },
+      //     });
+      //   },
+      // });
     });
 
     return () => {
@@ -64,13 +65,20 @@ const Hero: React.FC = () => {
       <SettingAppearance />
       <div className={styles.content}>
         <h1 className={`${styles.title} title`}>{t.hero.title}</h1>
-        <h2 className={`${styles.role} role`}>{t.hero.role1}</h2>
-        <h2 className={`${styles.role} role`}>{t.hero.role2}</h2>
+        <h2 className={`${styles.role} role`}>
+          {t.hero.role1}
+          <br />
+          {t.hero.role2}
+        </h2>
         <p className={`${styles.description} description`}>{t.hero.description}</p>
-        <a className={`${styles.contact} contact`} href={t.hero.link} target="_blank" rel="noopener noreferrer">
+        <Link
+          className={`${styles.contact} contact d-flex align-items-center gap-1`}
+          href={t.hero.link}
+          target="_blank"
+          rel="noopener noreferrer">
           <span>{t.hero.contact}</span>
           <ExternalLink width={20} />
-        </a>
+        </Link>
       </div>
       <Illustration />
     </div>
