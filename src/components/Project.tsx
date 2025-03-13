@@ -60,13 +60,13 @@ const Project: React.FC = () => {
           </Col>
         ))}
       </Row>
-      <Modal show={show} onHide={handleClose} size="xl" centered>
+      <Modal show={show} onHide={handleClose} size="xl" centered scrollable>
         <Modal.Header closeButton>
           <Modal.Title>{selectedProject?.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Row>
-            <Col md={6} className={styles.projectInfo}>
+            <Col xl={6} className={styles.projectInfo}>
               <p
                 className={styles.projectDescription}
                 dangerouslySetInnerHTML={{ __html: selectedProject?.description || "" }}
@@ -77,35 +77,51 @@ const Project: React.FC = () => {
                 ))}
               </div>
             </Col>
-            <Col md={6}>
+            <Col xl={6}>
               {selectedProject?.images && (
                 <>
-                  <Carousel activeIndex={index} onSelect={handleSelect}>
-                    {selectedProject.images.map((image, idx) => (
-                      <Carousel.Item key={idx}>
-                        <Image
-                          src={image || "/placeholder.svg"}
-                          alt={`${selectedProject.title} - img ${idx + 1}`}
-                          width={600}
-                          height={400}
-                          style={{
-                            maxWidth: "100%",
-                            height: "auto",
-                            objectFit: "cover",
-                          }}
-                        />
-                      </Carousel.Item>
-                    ))}
-                  </Carousel>
-                  <div className={styles.thumbnailContainer}>
-                    {selectedProject.images.map((image, idx) => (
-                      <div
-                        key={idx}
-                        onClick={() => setIndex(idx)}
-                        className={`${styles.thumbnail} ${idx === index ? styles.active : ""}`}>
-                        <Image src={image || "/placeholder.svg"} alt={`img ${idx + 1}`} width={60} height={40} />
+                  <div className={styles.imageContainer}>
+                    <div className={styles.carouselWrapper}>
+                      <Carousel activeIndex={index} onSelect={handleSelect}>
+                        {selectedProject.images.map((image, idx) => (
+                          <Carousel.Item key={idx}>
+                            <Image
+                              src={image || "/placeholder.svg"}
+                              alt={`${selectedProject.title} - img ${idx + 1}`}
+                              width={600}
+                              height={400}
+                              className={styles.carouselImage}
+                            />
+                          </Carousel.Item>
+                        ))}
+                      </Carousel>
+                      <div className={styles.thumbnailContainer}>
+                        {selectedProject.images.map((image, idx) => (
+                          <div
+                            key={idx}
+                            onClick={() => setIndex(idx)}
+                            className={`${styles.thumbnail} ${idx === index ? styles.active : ""}`}>
+                            <Image src={image || "/placeholder.svg"} alt={`img ${idx + 1}`} width={60} height={40} />
+                          </div>
+                        ))}
                       </div>
-                    ))}
+                    </div>
+                    <div className={styles.verticalImageContainer}>
+                      {selectedProject.images.map((image, idx) => (
+                        <div key={idx} className={styles.verticalImage}>
+                          <Image
+                            src={image || "/placeholder.svg"}
+                            alt={`${selectedProject.title} - img ${idx + 1}`}
+                            width={600}
+                            height={400}
+                            style={{
+                              width: "100%",
+                              height: "auto",
+                            }}
+                          />
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </>
               )}
