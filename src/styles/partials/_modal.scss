@@ -1,0 +1,99 @@
+// Bootstrapのモーダル関連のスタイル上書き
+.modal-content {
+  background-color: var(--background-color) !important;
+  border: none !important;
+  border-radius: 12px !important;
+}
+
+.modal-header {
+  border-bottom: none !important;
+  padding: 1.5rem 1.5rem 0.5rem !important;
+}
+
+.modal-title {
+  font-family: $font-family-title !important;
+  font-weight: 600 !important;
+  font-size: 1.8rem !important;
+  color: var(--text-color) !important;
+}
+
+.modal-body {
+  padding: 1rem 1.5rem 1.5rem !important;
+  background-color: var(--background-color) !important;
+}
+
+.btn-close {
+  opacity: 0.8 !important;
+  &:focus {
+    box-shadow: none !important;
+  }
+}
+
+// カルーセル関連のスタイル上書き
+.carousel {
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  margin-bottom: 1rem !important;
+}
+
+.carousel-item img {
+  border-radius: 8px !important;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 10% !important;
+}
+
+.carousel-indicators {
+  margin-bottom: 0.5rem !important;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  border-radius: 50% !important;
+  padding: 1rem !important;
+}
+
+// ダークモード対応
+html.dark {
+  .modal-content,
+  .modal-header,
+  .modal-body {
+    background-color: var(--background-color) !important;
+  }
+
+  .modal-title {
+    color: var(--text-color) !important;
+  }
+
+  .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%) !important;
+  }
+
+  .modal-backdrop.show {
+    opacity: 0.95 !important;
+  }
+}
+
+// レスポンシブ対応
+@media (max-width: #{$breakpoint-md}) {
+  .modal-title {
+    font-size: 1.6rem !important;
+  }
+}
+
+@media (max-width: #{$breakpoint-sm}) {
+  .modal-header {
+    padding: 1.2rem 1.2rem 0.5rem !important;
+  }
+
+  .modal-title {
+    font-size: 1.4rem !important;
+  }
+
+  .modal-body {
+    padding: 0.8rem 1.2rem 1.2rem !important;
+  }
+}

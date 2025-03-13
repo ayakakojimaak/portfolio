@@ -1,9 +1,8 @@
 import React from "react";
 // import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Summary from "@/components/Summary";
-import SidebarSection from "@/components/SidebarSection";
 import SideberSocial from "@/components/SidebarSocial";
+import SidebarSection from "@/components/SidebarSection";
 import AboutMe from "@/components/AboutMe";
 import Project from "@/components/Project";
 import Experience from "@/components/Experience";
@@ -29,7 +28,6 @@ export default function Home() {
     <div>
       <Hero />
       <main id="main">
-        <Summary />
         <AboutMe />
         <Project />
         <Skills />

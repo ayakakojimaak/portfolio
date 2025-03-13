@@ -17,8 +17,8 @@ export const translations = {
         "From design to development, providing end-to-end solutions",
         "React.js, Next.js, TypeScript, Figma",
       ],
-      resume: "Download Resume",
-      link: "",
+      resume: "LinkedIn",
+      link: "https://www.linkedin.com/in/ayaka-kojima/",
     },
     about: {
       subtitle:
@@ -29,10 +29,51 @@ export const translations = {
     projects: [
       {
         id: 1,
-        title: "UI Design mobile app for a Fitness App",
+        title: "Front-End Development & UI Design for a SaaS Platform",
+        category: ["React", "TypeScript", "Figma"],
+        images: ["/assets/images/project/yoom-01.png", "/assets/images/project/yoom-02.png"],
+        description:
+          "I delivered user-centric features and intuitive UI improvements for a SaaS platform using React and TypeScript. <br /> <br />💡 Highlights <br />- Implemented a mention feature in the comment system, enhancing user convenience and contributing to a 4% increase in premium plan registrations <br />- Refactored redundant code, decreasing development time for new features by 60% <br />- Created and maintained E2E tests, reducing post-release bugs by 20% <br />- Collaborated with stakeholders to design UI improvements in Figma, greatly enhancing user experience",
+      },
+      {
+        id: 3,
+        title: "Front-End Development for Corporate Website",
+        category: ["Nuxt", "Vue.js", "JavaScript"],
+        images: ["/assets/images/project/leverage-01.png"],
+        description:
+          "I worked with a corporate team to improve their website, focusing on creating an engaging and professional online presence. <br /> <br />📌 Project Requirements <br />- Build a modern, responsive corporate website <br />- Use Nuxt, Vue, and JavaScript for interactivity <br />- Ensure smooth navigation and performance <br /> <br /> 💡 Highlights <br />- Created a dynamic and visually compelling website that accurately represents the client’s brand identity <br />- Established seamless navigation and responsive design, enhancing user experience across various devices <br />- Improved performance, leading to faster loading and increased user engagement",
+      },
+      {
+        id: 2,
+        title: "Front-End Development for D2C E-commerce Site",
         category: ["WordPress", "HTML", "SCSS"],
-        images: ["/assets/images/project-image01.png", "/assets/images/project-image01.png"],
-        description: "An agency website with digital strategies.",
+        images: ["/assets/images/project/valx-01.png"],
+        description:
+          "I delivered user-centric features and intuitive UI improvements for a SaaS platform using React and TypeScript. <br /> <br />💡 Highlights <br />- Implemented a mention feature in the comment system, enhancing user convenience and contributing to a 4% increase in premium plan registrations <br />- Refactored redundant code, decreasing development time for new features by 60% <br />- Created and maintained E2E tests, reducing post-release bugs by 20% <br />- Collaborated with stakeholders to design UI improvements in Figma, greatly enhancing user experience",
+      },
+      {
+        id: 4,
+        title: "UI Design mobile app for a Fitness App",
+        category: ["Figma", "Photoshop", "Illustrator"],
+        images: ["/assets/images/project/gymapp-01.png", "/assets/images/project/gymapp-02.png"],
+        description:
+          "I designed a mobile app for a fitness app, focusing on creating an engaging and user-friendly interface. <br /> <br /> 💡 Highlights <br />- Created a visually appealing and intuitive UI design for a fitness app, enhancing user engagement and satisfaction <br />- Developed a responsive and accessible design that caters to a wide range of users <br />- Collaborated with stakeholders to refine the design, resulting in a more user-friendly and effective application",
+      },
+      {
+        id: 5,
+        title: "Packaging Design for Protein Supplements",
+        category: ["Illustrator", "Photoshop"],
+        images: ["/assets/images/project/protein-01.jpg", "/assets/images/project/protein-02.jpg"],
+        description:
+          "I designed packaging for a women's protein supplement brand, focusing on creating a visually appealing and user-friendly design. <br /> <br /> 💡 Highlights <br />- Created a visually appealing and intuitive UI design for a fitness app, enhancing user engagement and satisfaction <br />- Developed a responsive and accessible design that caters to a wide range of users <br />- Collaborated with stakeholders to refine the design, resulting in a more user-friendly and effective application",
+      },
+      {
+        id: 6,
+        title: "Menu Design for Luxurious Dining Experiences",
+        category: ["Canva", "Photoshop"],
+        images: ["/assets/images/project/menu-01.png", "/assets/images/project/menu-02.png"],
+        description:
+          "I designed a sleek and modern menu for a high-end bar and dining establishment. <br /> <br /> 💡 Highlights <br />- Utilizing Canva empowered the client’s team to handle future updates on their own <br />- Enhanced the layout using Canva’s grouping feature for effortless text and element adjustments <br />- Provided clear guidelines to maintain consistency in future updates",
       },
     ],
     experiences: [
@@ -109,11 +150,18 @@ export const translations = {
     about: {
       subtitle: "",
       description:
-        "はじめまして。小島彩加と申します。私はデザイナーとしての経験を活かし、フロントエンドエンジニアとして働いています。今までReactやTypeScriptを用いて直感的で使いやすいUIを提案・実装してきました。特にレスポンシブデザインやモジュール化されたコードの実装に注力し、メンテナンス性や拡張性の高い開発を実現しています。将来的には、デザインと技術の橋渡し役としてプロダクトの価値を高めるだけでなく、フロントエンドエンジニアとして最新技術を取り入れ、高品質でパフォーマンスの高いアプリケーションを開発する力をさらに伸ばしていきたいです。趣味は格闘技やボルダリング、洋画鑑賞、ネコと遊ぶことです。",
+        "はじめまして。小島彩加と申します。私はデザイナーとしての経験を活かし、フロントエンドエンジニアとして働いています。今までReactやTypeScriptを用いて直感的で使いやすいUIを提案・実装してきました。特にレスポンシブデザインやモジュール化されたコードの実装に注力し、メンテナンス性や拡張性の高い開発を実現しています。</br></br>将来的には、デザインと技術の橋渡し役としてプロダクトの価値を高めるだけでなく、フロントエンドエンジニアとして最新技術を取り入れ、高品質でパフォーマンスの高いアプリケーションを開発する力をさらに伸ばしていきたいです。</br></br>趣味は格闘技やボルダリング、洋画鑑賞、ネコと遊ぶことです🐱",
     },
     projects: [
       {
         id: 1,
+        title: "フィットネスアプリのUIデザインモバイルアプリ",
+        category: ["WordPress", "HTML", "SCSS"],
+        images: ["/assets/images/project-image01.png", "/assets/images/project-image01.png"],
+        description: "デジタル戦略を取り入れたエージェンシー向けウェブサイト。",
+      },
+      {
+        id: 2,
         title: "フィットネスアプリのUIデザインモバイルアプリ",
         category: ["WordPress", "HTML", "SCSS"],
         images: ["/assets/images/project-image01.png", "/assets/images/project-image01.png"],

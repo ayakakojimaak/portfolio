@@ -1,6 +1,7 @@
 @import "~bootstrap/scss/bootstrap";
 @import "./partials/reset";
 @import "./partials/variables";
+@import "./partials/modal";
 
 :root {
   --primary-color: #{$primary-color-light};
@@ -8,6 +9,7 @@
   --medium-emphasis: #{$medium-emphasis-light};
   --background-color: #{$background-color-light};
   --text-color: #{$text-color-light};
+  --border-color: #{$border-color-light};
 }
 
 html.dark {
@@ -16,6 +18,7 @@ html.dark {
   --medium-emphasis: #{$medium-emphasis-dark};
   --background-color: #{$background-color-dark};
   --text-color: #{$text-color-dark};
+  --border-color: #{$border-color-dark};
 }
 
 html:lang(ja) {

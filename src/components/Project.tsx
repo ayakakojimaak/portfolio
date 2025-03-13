@@ -2,47 +2,20 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { Modal, Button, Card, Row, Col, Carousel } from "react-bootstrap";
+import styles from "./Project.module.scss";
+import { useTranslation } from "@/components/hooks/useTranslation";
 
 interface Project {
   id: number;
   title: string;
-  category: string;
+  category: string[];
   images: string[];
   description: string;
 }
 
-const projects: Project[] = [
-  {
-    id: 1,
-    title: "UI Design mobile app for a Fitness App",
-    category: "Agency Website",
-    images: ["/assets/images/project-image01.png", "/assets/images/project-image01.png"],
-    description: "An agency website with digital strategies.",
-  },
-  {
-    id: 2,
-    title: "Shiro",
-    category: "Personal Portfolio",
-    images: ["/assets/images/project-image01.png"],
-    description: "A clean and modern personal portfolio.",
-  },
-  {
-    id: 3,
-    title: "Vivid",
-    category: "App Showcase",
-    images: ["/assets/images/project-image01.png"],
-    description: "An app showcase landing page.",
-  },
-  {
-    id: 4,
-    title: "Capture",
-    category: "Video Agency",
-    images: ["/assets/images/project-image01.png"],
-    description: "A video production agency website.",
-  },
-];
-
 const Project: React.FC = () => {
+  const t = useTranslation();
+  const projects: Project[] = t.projects;
   const [show, setShow] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [index, setIndex] = useState(0);
@@ -59,19 +32,29 @@ const Project: React.FC = () => {
   };
 
   return (
-    <section className="container" id="projects">
-      <h2 className="mb-3">
+    <section className={`container ${styles.projectSection}`} id="projects">
+      <h2>
         <span>02</span>
         <span>Projects</span>
       </h2>
-      <Row xs={2} md={3} className="g-4">
-        {projects.map((project) => (
+      <Row xs={1} sm={2} md={3} className={`g-4 ${styles.projectGrid}`}>
+        {projects.map((project: Project) => (
           <Col key={project.id}>
-            <Card onClick={() => handleShow(project)}>
-              <Card.Img variant="top" src={project.images[0]} alt={project.title} />
-              <Card.Body>
-                <Card.Title>{project.title}</Card.Title>
-                <Card.Text>{project.category}</Card.Text>
+            <Card className={styles.projectCard} onClick={() => handleShow(project)}>
+              <Image
+                className={styles.cardImg}
+                src={project.images[0] || "/placeholder.svg"}
+                alt={project.title}
+                width={400}
+                height={220}
+              />
+              <Card.Body className={styles.cardBody}>
+                <Card.Title className={styles.cardTitle}>{project.title}</Card.Title>
+                <Card.Text className={styles.cardCategory}>
+                  {project.category.map((category) => (
+                    <span key={category}>{category}</span>
+                  ))}
+                </Card.Text>
               </Card.Body>
             </Card>
           </Col>
@@ -83,9 +66,16 @@ const Project: React.FC = () => {
         </Modal.Header>
         <Modal.Body>
           <Row>
-            <Col md={6}>
-              <h4>{selectedProject?.category}</h4>
-              <p>{selectedProject?.description}</p>
+            <Col md={6} className={styles.projectInfo}>
+              <p
+                className={styles.projectDescription}
+                dangerouslySetInnerHTML={{ __html: selectedProject?.description || "" }}
+              />
+              <div className={styles.projectCategory}>
+                {selectedProject?.category.map((category) => (
+                  <span key={category}>{category}</span>
+                ))}
+              </div>
             </Col>
             <Col md={6}>
               {selectedProject?.images && (
@@ -95,7 +85,7 @@ const Project: React.FC = () => {
                       <Carousel.Item key={idx}>
                         <Image
                           src={image || "/placeholder.svg"}
-                          alt={`${selectedProject.title} - 画像 ${idx + 1}`}
+                          alt={`${selectedProject.title} - img ${idx + 1}`}
                           width={600}
                           height={400}
                           style={{
@@ -107,25 +97,13 @@ const Project: React.FC = () => {
                       </Carousel.Item>
                     ))}
                   </Carousel>
-                  <div className="d-flex justify-content-center mt-3">
+                  <div className={styles.thumbnailContainer}>
                     {selectedProject.images.map((image, idx) => (
                       <div
                         key={idx}
                         onClick={() => setIndex(idx)}
-                        style={{
-                          cursor: "pointer",
-                          margin: "0 5px",
-                          border: idx === index ? "2px solid #007bff" : "none",
-                        }}>
-                        <Image
-                          src={image || "/placeholder.svg"}
-                          alt={`サムネイル ${idx + 1}`}
-                          width={60}
-                          height={40}
-                          style={{
-                            objectFit: "cover",
-                          }}
-                        />
+                        className={`${styles.thumbnail} ${idx === index ? styles.active : ""}`}>
+                        <Image src={image || "/placeholder.svg"} alt={`img ${idx + 1}`} width={60} height={40} />
                       </div>
                     ))}
                   </div>
