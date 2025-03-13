@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./Skills.module.scss";
 
 const skills = {
   "Coding Languages": ["HTML5", "CSS3", "SASS", "TypeScript", "JavaScript", "PHP"],
@@ -11,18 +12,20 @@ const skills = {
 
 const Skill = () => {
   return (
-    <section className="container" id="skills">
-      <h2 className="mb-3">
-        <span>03</span>
+    <section className={styles.container} id="skills">
+      <h2 className={styles.title}>
+        <span className={styles.sectionNumber}>03</span>
         <span>Skills</span>
       </h2>
-      <div className="">
+      <div className={styles.skillsGrid}>
         {Object.entries(skills).map(([category, skillList]) => (
-          <div className="" key={category}>
-            {category}
-            <ul>
+          <div className={styles.skillCategory} key={category}>
+            <h3 className={styles.categoryTitle}>{category}</h3>
+            <ul className={styles.skillsList}>
               {skillList.map((skill, index) => (
-                <li key={index}>{skill}</li>
+                <li className={styles.skillItem} key={index}>
+                  {skill}
+                </li>
               ))}
             </ul>
           </div>

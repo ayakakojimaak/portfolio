@@ -1,12 +1,31 @@
+@use "../styles/partials/variables" as variables;
+
 .experienceSection {
   max-width: 800px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 5rem 1rem;
+
+  h2 {
+    font-family: variables.$font-family-title;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    span:first-child {
+      font-size: 1.2rem;
+      color: var(--text-color);
+      opacity: 0.8;
+    }
+  }
 }
 
 .experienceItem {
   padding: 1.5rem 0;
   border-bottom: 1px solid var(--border-color);
+  margin-bottom: 1rem;
 
   &:last-child {
     border-bottom: none;
@@ -17,7 +36,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .headerLeft {
@@ -25,19 +44,26 @@
 }
 
 .company {
-  font-size: 1.25rem;
+  font-family: variables.$font-family-title;
+  font-size: 1.4rem;
   font-weight: 600;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
 }
 
 .title {
-  color: #444;
+  font-family: variables.$font-family-text;
+  font-size: 1.1rem;
+  color: var(--medium-emphasis);
   margin-bottom: 0.5rem;
 }
 
 .period {
-  color: #666;
+  color: var(--medium-emphasis);
   font-size: 0.9rem;
+  font-family: variables.$font-family-text;
+  white-space: nowrap;
+  margin-left: 1rem;
 }
 
 .details {
@@ -46,12 +72,79 @@
   margin: 0;
 
   li {
+    font-family: variables.$font-family-text;
     margin-bottom: 0.75rem;
-    line-height: 1.5;
-    color: #444;
+    line-height: 1.6;
+    color: var(--text-color);
+    position: relative;
+    padding-left: 1.5rem;
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.7rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--primary-color);
+    }
 
     &:last-child {
       margin-bottom: 0;
     }
+  }
+}
+
+// レスポンシブ対応
+@media (max-width: variables.$breakpoint-md) {
+  .experienceSection {
+    padding: 4rem 1rem;
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  .company {
+    font-size: 1.3rem;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: variables.$breakpoint-sm) {
+  .experienceSection {
+    padding: 3rem 1rem;
+
+    h2 {
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .header {
+    flex-direction: column;
+  }
+
+  .period {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+
+  .company {
+    font-size: 1.2rem;
+  }
+
+  .title {
+    font-size: 0.95rem;
+  }
+
+  .details li {
+    font-size: 0.9rem;
+    line-height: 1.5;
   }
 }
