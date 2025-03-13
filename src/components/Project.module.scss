@@ -102,6 +102,8 @@
   margin-top: 1rem;
 
   .thumbnail {
+    width: 70px;
+    height: 70px;
     border-radius: 4px;
     overflow: hidden;
     cursor: pointer;
@@ -116,6 +118,8 @@
     }
 
     img {
+      height: 100%;
+      width: 100%;
       object-fit: cover;
     }
   }
