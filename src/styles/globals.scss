@@ -21,13 +21,6 @@ html.dark {
   --border-color: #{$border-color-dark};
 }
 
-html:lang(ja) {
-  p,
-  li {
-    font-size: 0.9rem;
-  }
-}
-
 body {
   font-family: $font-family-text;
   color: var(--text-color);
@@ -69,6 +62,14 @@ svg {
   stroke-width: 1.6px;
 }
 
+// styles for JP
+html:lang(ja) {
+  p,
+  li {
+    font-size: 0.9rem;
+  }
+}
+
 // --start temp
 .cls-1 {
   fill: none;
@@ -102,7 +103,6 @@ svg {
 }
 
 .section-title {
-  font-family: $font-family-title;
   font-size: 2.5rem;
   font-weight: 600;
   margin-bottom: 2.5rem;
