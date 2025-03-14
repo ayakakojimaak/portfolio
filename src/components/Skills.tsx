@@ -12,12 +12,12 @@ const skills = {
 
 const Skill = () => {
   return (
-    <section className={styles.container} id="skills">
-      <h2 className={styles.title}>
-        <span className={styles.sectionNumber}>03</span>
+    <section className="section" id="skills">
+      <h2 className="section-title">
+        <span className="section-number">03</span>
         <span>Skills</span>
       </h2>
-      <div className={styles.skillsGrid}>
+      <div>
         {Object.entries(skills).map(([category, skillList]) => (
           <div className={styles.skillCategory} key={category}>
             <h3 className={styles.categoryTitle}>{category}</h3>

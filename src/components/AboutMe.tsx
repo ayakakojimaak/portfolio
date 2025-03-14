@@ -9,11 +9,11 @@ const AboutMe: React.FC = () => {
   const t = useTranslation();
 
   return (
-    <section className={`container ${styles.container}`} id="about-me">
+    <section className="section" id="about-me">
       <div className="row">
         <div className="col-12">
-          <h2 className={styles.title}>
-            <span className={styles.sectionNumber}>01</span>
+          <h2 className="section-title">
+            <span className="section-number">01</span>
             <span>About Me</span>
           </h2>
         </div>

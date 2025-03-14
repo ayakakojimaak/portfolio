@@ -1,27 +1,6 @@
 // src/styles/modules/AboutMe.module.scss
 @use "../styles/partials/variables" as variables;
 
-.container {
-  padding: 5rem 0;
-  margin-bottom: 2rem;
-}
-
-.title {
-  font-family: variables.$font-family-title;
-  font-size: 2.5rem;
-  font-weight: 600;
-  margin-bottom: 2.5rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.sectionNumber {
-  font-size: 1.2rem;
-  color: var(--text-color);
-  opacity: 0.8;
-}
-
 .profileSection {
   margin-bottom: 3rem;
 }
@@ -118,15 +97,6 @@
 
 // レスポンシブ対応
 @media (max-width: variables.$breakpoint-md) {
-  .container {
-    padding: 4rem 0;
-  }
-
-  .title {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-  }
-
   .name {
     font-size: 1.6rem;
   }
@@ -146,15 +116,6 @@
 }
 
 @media (max-width: variables.$breakpoint-sm) {
-  .container {
-    padding: 3rem 0;
-  }
-
-  .title {
-    font-size: 1.75rem;
-    margin-bottom: 1.5rem;
-  }
-
   .profileSection {
     margin-bottom: 2rem;
     padding-bottom: 1.5rem;

@@ -104,3 +104,48 @@ svg {
 section {
   margin-bottom: 2rem;
 }
+
+// 共通セクションスタイル
+.section {
+  padding: 5rem 0;
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-family: $font-family-title;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.section-number {
+  font-size: 1.2rem;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+// レスポンシブ対応
+@media (max-width: #{$breakpoint-md}) {
+  .section {
+    padding: 4rem 0;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: #{$breakpoint-sm}) {
+  .section {
+    padding: 3rem 0;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+}

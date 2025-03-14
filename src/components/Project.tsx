@@ -32,9 +32,9 @@ const Project: React.FC = () => {
   };
 
   return (
-    <section className={`container ${styles.projectSection}`} id="projects">
-      <h2>
-        <span>02</span>
+    <section className="section" id="projects">
+      <h2 className="section-title">
+        <span className="section-number">02</span>
         <span>Projects</span>
       </h2>
       <Row xs={1} sm={2} md={3} className={`g-4 ${styles.projectGrid}`}>

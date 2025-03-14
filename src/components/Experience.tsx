@@ -51,9 +51,9 @@ const Experience = () => {
   }, []);
 
   return (
-    <section className={styles.experienceSection} id="experience" ref={sectionRef}>
-      <h2>
-        <span>04</span>
+    <section className="section" id="experience" ref={sectionRef}>
+      <h2 className="section-title">
+        <span className="section-number">04</span>
         <span>Experience</span>
       </h2>
 
