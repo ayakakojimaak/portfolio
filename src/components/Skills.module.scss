@@ -1,6 +1,7 @@
 @use "../styles/partials/variables" as variables;
 
 .skillCategory {
+  padding-left: 1rem;
   margin-bottom: 1.5rem;
   display: flex;
   gap: 1.5rem;
@@ -8,12 +9,10 @@
 }
 
 .categoryTitle {
-  font-family: variables.$font-family-title;
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: var(--text-color);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--medium-emphasis);
   position: relative;
-  padding-left: 0.5rem;
 }
 
 .skillsList {

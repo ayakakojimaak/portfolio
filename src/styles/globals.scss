@@ -33,6 +33,7 @@ body {
   color: var(--text-color);
   margin: 0;
   padding: 0;
+  padding-bottom: 100px;
   box-sizing: border-box;
   background-color: var(--background-color);
 }
@@ -68,7 +69,7 @@ svg {
   stroke-width: 1.6px;
 }
 
-// temp
+// --start temp
 .cls-1 {
   fill: none;
   stroke: var(--text-color);
@@ -94,21 +95,10 @@ svg {
   }
 }
 
-.section-number {
-  color: #fff;
-  -webkit-text-stroke: 1px var(--text-codlor);
-  text-stroke: var(--text-color);
-  font-size: 90px;
-}
-
-section {
-  margin-bottom: 2rem;
-}
-
+//--end tem
 // 共通セクションスタイル
 .section {
-  padding: 5rem 0;
-  margin-bottom: 2rem;
+  padding: 3rem 0;
 }
 
 .section-title {
@@ -124,7 +114,6 @@ section {
 .section-number {
   font-size: 1.2rem;
   color: var(--text-color);
-  opacity: 0.8;
 }
 
 // レスポンシブ対応

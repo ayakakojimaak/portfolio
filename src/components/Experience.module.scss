@@ -2,19 +2,14 @@
 
 .experienceItem {
   padding: 1.5rem 0;
-  border-bottom: 1px solid var(--border-color);
   margin-bottom: 1rem;
-
-  &:last-child {
-    border-bottom: none;
-  }
 }
 
 .header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .headerLeft {
@@ -46,27 +41,14 @@
 
 .details {
   list-style-type: none;
-  padding-left: 0;
+  padding-left: 1rem;
   margin: 0;
 
   li {
     font-family: variables.$font-family-text;
     margin-bottom: 0.75rem;
-    line-height: 1.6;
     color: var(--text-color);
     position: relative;
-    padding-left: 1.5rem;
-
-    &:before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.7rem;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background-color: var(--primary-color);
-    }
 
     &:last-child {
       margin-bottom: 0;
@@ -105,6 +87,5 @@
 
   .details li {
     font-size: 0.9rem;
-    line-height: 1.5;
   }
 }

@@ -17,19 +17,6 @@ const SidebarSection: React.FC<SidebarProps> = ({ sectionOrder }) => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const sidebarRef = useRef<HTMLElement>(null);
   const navItemsRef = useRef<HTMLLIElement[]>([]);
-  const [primaryColor, setPrimaryColor] = useState<string>("#000");
-  const [textColor, setTextColor] = useState<string>("#fff");
-
-  // クライアント側でのみ CSS 変数を取得
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const getCSSVariable = (varName: string) =>
-        getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
-
-      setPrimaryColor(getCSSVariable("--primary-color") || "#000");
-      setTextColor(getCSSVariable("--text-color") || "#fff");
-    }
-  }, []);
 
   // 初回読み込み時のアニメーション
   useLayoutEffect(() => {
@@ -47,28 +34,6 @@ const SidebarSection: React.FC<SidebarProps> = ({ sectionOrder }) => {
       });
     }, 100);
   }, []);
-
-  // ホバー & アクティブ時のアニメーション
-  useEffect(() => {
-    navItemsRef.current.forEach((item) => {
-      if (!item) return;
-
-      const hoverAnim = gsap.to(item, {
-        color: primaryColor,
-        duration: 0.3,
-        paused: true,
-        ease: "power2.out",
-      });
-
-      item.addEventListener("mouseenter", () => hoverAnim.play());
-      item.addEventListener("mouseleave", () => hoverAnim.reverse());
-
-      return () => {
-        item.removeEventListener("mouseenter", () => hoverAnim.play());
-        item.removeEventListener("mouseleave", () => hoverAnim.reverse());
-      };
-    });
-  }, [primaryColor]);
 
   // スクロールトリガーの設定
   useEffect(() => {
@@ -98,12 +63,10 @@ const SidebarSection: React.FC<SidebarProps> = ({ sectionOrder }) => {
             ref={(el) => {
               if (el) navItemsRef.current[index] = el;
             }}
-            className={`${styles.sectionItem} navItem`}
-            style={{
-              color: activeSection === section.slug ? primaryColor : textColor,
-              transition: "color 0.3s ease, color 0.3s ease",
-            }}>
-            <a href={`#${section.slug}`} className={styles.link}>
+            className={`${styles.sectionItem} navItem`}>
+            <a
+              href={`#${section.slug}`}
+              className={`${styles.link} ${activeSection === section.slug ? styles.active : ""}`}>
               <span className={styles.sectionKey}>{section.key}</span>
               <span className={styles.sectionTitle}>{section.title}</span>
             </a>

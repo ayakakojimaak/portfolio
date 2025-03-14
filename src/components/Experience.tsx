@@ -69,7 +69,7 @@ const Experience = () => {
               <h3 className={styles.company}>{exp.company}</h3>
               <div className={styles.title}>{exp.title}</div>
             </div>
-            <div className={styles.period}>{exp.period}</div>
+            {/* <div className={styles.period}>{exp.period}</div> */}
           </div>
           <ul className={styles.details}>
             {exp.details.map((detail, index) => (

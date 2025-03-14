@@ -20,7 +20,7 @@ const Skill = () => {
       <div>
         {Object.entries(skills).map(([category, skillList]) => (
           <div className={styles.skillCategory} key={category}>
-            <h3 className={styles.categoryTitle}>{category}</h3>
+            <div className={styles.categoryTitle}>{category}</div>
             <ul className={styles.skillsList}>
               {skillList.map((skill, index) => (
                 <li className={styles.skillItem} key={index}>
