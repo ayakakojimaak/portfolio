@@ -48,6 +48,12 @@
 
 .contact {
   opacity: 0;
+  span {
+    color: var(--primary-color);
+  }
+  svg {
+    stroke: var(--primary-color);
+  }
 }
 
 @media (max-width: variables.$breakpoint-md) {

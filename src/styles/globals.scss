@@ -83,6 +83,7 @@ html:lang(ja) {
   position: absolute;
   left: 10%;
   top: -1px;
+  z-index: -1;
 }
 
 @media (max-width: #{$breakpoint-sm}) {
