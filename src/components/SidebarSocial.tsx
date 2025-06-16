@@ -9,7 +9,7 @@ import styles from "./Sidebar.module.scss";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Sidebar: React.FC = () => {
+const SidebarSocial: React.FC = () => {
   const lineRef = useRef<SVGLineElement>(null);
   const socialRefs = useRef<HTMLAnchorElement[]>([]); // 配列でrefを保持
 
@@ -82,4 +82,4 @@ const Sidebar: React.FC = () => {
   );
 };
 
-export default Sidebar;
+export default SidebarSocial;

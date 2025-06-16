@@ -139,3 +139,10 @@ html:lang(ja) {
     margin-bottom: 1.5rem;
   }
 }
+
+// 1200px以下でmain内のdivにパディングを適用
+@media (max-width: 1200px) {
+  #main > #content {
+    padding: 0 1rem;
+  }
+}

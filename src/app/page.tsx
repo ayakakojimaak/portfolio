@@ -1,7 +1,9 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 // import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import SideberSocial from "@/components/SidebarSocial";
+import SidebarSocial from "@/components/SidebarSocial";
 import SidebarSection from "@/components/SidebarSection";
 import AboutMe from "@/components/AboutMe";
 import Project from "@/components/Project";
@@ -24,16 +26,35 @@ const sectionOrder: Section[] = [
 ];
 
 export default function Home() {
+  const [isWideScreen, setIsWideScreen] = useState(false);
+
+  useEffect(() => {
+    const checkScreenWidth = () => {
+      setIsWideScreen(window.innerWidth >= 1400);
+    };
+
+    // 初期チェック
+    checkScreenWidth();
+
+    // リサイズイベントリスナーを追加
+    window.addEventListener('resize', checkScreenWidth);
+
+    // クリーンアップ
+    return () => window.removeEventListener('resize', checkScreenWidth);
+  }, []);
+
   return (
     <div>
       <Hero />
       <main id="main">
         <AboutMe />
+        <div id="content">
         <Project />
         <Skills />
         <Experience />
-        <SidebarSection sectionOrder={sectionOrder} />
-        <SideberSocial />
+        {isWideScreen && <SidebarSection sectionOrder={sectionOrder} />}
+        {isWideScreen && <SidebarSocial />}
+        </div>
       </main>
     </div>
   );
