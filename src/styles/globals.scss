@@ -140,9 +140,14 @@ html:lang(ja) {
   }
 }
 
-// 1200px以下でmain内のdivにパディングを適用
+// 1200px以下でmain内のコンテンツにパディングを適用
 @media (max-width: 1200px) {
   #main > #content {
     padding: 0 1rem;
+  }
+
+  #main > section {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }

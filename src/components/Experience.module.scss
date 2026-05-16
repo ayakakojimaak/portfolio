@@ -53,6 +53,13 @@
     &:last-child {
       margin-bottom: 0;
     }
+
+    &::before {
+      content: "–";
+      position: absolute;
+      left: -0.9rem;
+      color: var(--medium-emphasis);
+    }
   }
 }
 
