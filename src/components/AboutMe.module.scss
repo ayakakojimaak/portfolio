@@ -97,33 +97,40 @@
 
 // レスポンシブ対応
 @media (max-width: variables.$breakpoint-md) {
+  .profileSection{
+    margin-bottom: 0;
+  }
+
   .name {
+    margin-top: 1.5rem;
     font-size: 1.6rem;
   }
 
   .role {
+    margin: 0.5rem 0;
     font-size: 1rem;
   }
 
   .subtitle {
     font-size: 1.1rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
   }
 
   .description {
     font-size: 0.95rem;
     line-height: 1.7;
   }
+
+  .resumeLink {
+    margin-top: 1rem;
+  }
 }
 
 @media (max-width: variables.$breakpoint-sm) {
-  .profileSection {
-    margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
-  }
-
   .name {
     font-size: 1.4rem;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
   }
 
   .subtitle {

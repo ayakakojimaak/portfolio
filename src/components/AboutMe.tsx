@@ -51,7 +51,7 @@ const AboutMe: React.FC = () => {
         </div>
       </div>
 
-      <div className="row mt-5">
+      <div className="row">
         <div className="col-12">
           {t.about.subtitle && (
             <h4 className={styles.subtitle} dangerouslySetInnerHTML={{ __html: t.about.subtitle }}></h4>
