@@ -60,7 +60,7 @@ const SidebarSocial: React.FC = () => {
           </a>
         </li>
         <li>
-          <a ref={(el) => setSocialRef(el, 2)} href="https://www.linkedin.com/in/ayaka-kojima/">
+          <a ref={(el) => setSocialRef(el, 2)} href="https://www.linkedin.com/in/ayakakojimaak/">
             <Linkedin size={25} />
           </a>
         </li>
