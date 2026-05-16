@@ -3,80 +3,72 @@
 import type React from "react";
 import { useEffect, useRef } from "react";
 import { Github, Linkedin, Instagram, Twitter } from "lucide-react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./Sidebar.module.scss";
 
-gsap.registerPlugin(ScrollTrigger);
+const socialLinks = [
+  { href: "https://github.com/ayakakojimaak", Icon: Github },
+  { href: "https://www.linkedin.com/in/ayakakojimaak/", Icon: Linkedin },
+  { href: "https://www.instagram.com/janekojima/", Icon: Instagram },
+  { href: "https://x.com/_em_penguin/", Icon: Twitter },
+];
 
 const SidebarSocial: React.FC = () => {
   const lineRef = useRef<SVGLineElement>(null);
-  const socialRefs = useRef<HTMLAnchorElement[]>([]); // 配列でrefを保持
+  const iconRefs = useRef<(HTMLLIElement | null)[]>([]);
 
   useEffect(() => {
-    if (!lineRef.current) return;
-
     const line = lineRef.current;
+    if (!line) return;
+
     const length = line.getTotalLength();
+    line.style.strokeDasharray = String(length);
+    line.style.strokeDashoffset = String(length);
+    line.style.transition = "stroke-dashoffset 1s cubic-bezier(0.4, 0, 0.2, 1)";
 
-    gsap.set(line, {
-      strokeDasharray: length,
-      strokeDashoffset: length,
-    });
+    const hero = document.getElementById("hero");
+    if (!hero) return;
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#hero",
-        start: "bottom center",
-        end: "bottom center",
-        scrub: 0.5,
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) {
+          line.getBoundingClientRect();
+          line.style.strokeDashoffset = "0";
+
+          iconRefs.current.forEach((icon, index) => {
+            if (!icon) return;
+            icon.style.transitionDelay = `${0.5 + index * 0.15}s`;
+            icon.classList.add(styles.iconVisible);
+          });
+
+          observer.disconnect();
+        }
       },
-    });
-
-    tl.to(line, { strokeDashoffset: 0, duration: 1, ease: "power2.out" });
-
-    // staggerを使ってアイコンのアニメーションをまとめる
-    tl.fromTo(
-      socialRefs.current, // アニメーション対象の要素の配列
-      { opacity: 0, y: 20 }, // 初期値
-      { opacity: 1, y: 0, duration: 3, stagger: 1, ease: "power2.out" }, // 最終値, 遅延, イージング
-      "+=0.2" // timelineの開始位置
+      { threshold: 0 }
     );
-  }, []);
 
-  // refを配列に格納する関数
-  const setSocialRef = (el: HTMLAnchorElement | null, index: number) => {
-    if (el) {
-      socialRefs.current[index] = el;
-    }
-  };
+    observer.observe(hero);
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className={styles.socialContainer}>
       <ul className={styles.social}>
-        <li>
-          <a ref={(el) => setSocialRef(el, 3)} href="https://github.com/ayakakojimaak">
-            <Github size={25} />
-          </a>
-        </li>
-        <li>
-          <a ref={(el) => setSocialRef(el, 2)} href="https://www.linkedin.com/in/ayakakojimaak/">
-            <Linkedin size={25} />
-          </a>
-        </li>
-        <li>
-          <a ref={(el) => setSocialRef(el, 1)} href="https://www.instagram.com/janekojima/">
-            <Instagram size={25} />
-          </a>
-        </li>
-        <li>
-          <a ref={(el) => setSocialRef(el, 0)} href="https://x.com/_em_penguin/">
-            <Twitter size={25} />
-          </a>
-        </li>
+        {socialLinks.map(({ href, Icon }, index) => (
+          <li
+            key={index}
+            ref={(el) => {
+              iconRefs.current[index] = el;
+            }}
+            className={styles.socialIcon}>
+            <a href={href} target="_blank" rel="noopener noreferrer">
+              <Icon size={25} />
+            </a>
+          </li>
+        ))}
       </ul>
-      <svg className={styles.line} width="2" height="100%" viewBox="0 0 2 100%">
-        <line ref={lineRef} x1="1" y1="100%" x2="1" y2="0" strokeWidth={1.6} />
+      <svg className={styles.line} width="2" height="100" viewBox="0 0 2 100">
+        <line ref={lineRef} x1="1" y1="100" x2="1" y2="0" strokeWidth={1.6} />
       </svg>
     </div>
   );

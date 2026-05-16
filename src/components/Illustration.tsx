@@ -1,30 +1,32 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-// import styles from "./illustration.module.scss";
 
 const Illustration: React.FC = () => {
-  const pathRef = useRef<SVGSVGElement>(null);
+  const svgRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
-    if (!pathRef.current) return;
+    if (!svgRef.current) return;
+    const paths = svgRef.current.querySelectorAll<SVGPathElement>("path");
 
-    const paths = pathRef.current.querySelectorAll("path");
-    paths.forEach((path) => {
-      const length = (path as SVGPathElement).getTotalLength();
-      gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
+    paths.forEach((path, index) => {
+      const length = path.getTotalLength();
+      path.style.strokeDasharray = String(length);
+      path.style.strokeDashoffset = String(length);
+      path.style.transition = `stroke-dashoffset 2s cubic-bezier(0.4, 0, 0.2, 1) ${index}s`;
     });
 
-    const tl = gsap.timeline();
-    paths.forEach((path, index) => {
-      tl.to(path, { strokeDashoffset: 0, duration: 2, ease: "power2.out" }, index * 1);
+    // Force reflow so the initial state is painted before transitioning
+    svgRef.current.getBoundingClientRect();
+
+    paths.forEach((path) => {
+      path.style.strokeDashoffset = "0";
     });
   }, []);
 
   return (
     <svg
-      ref={pathRef}
+      ref={svgRef}
       id="illustration"
       data-name="illustration"
       xmlns="http://www.w3.org/2000/svg"

@@ -2,56 +2,37 @@
 
 import { useEffect, useRef } from "react";
 import styles from "./Experience.module.scss";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useTranslation } from "@/components/hooks/useTranslation";
 
-gsap.registerPlugin(ScrollTrigger);
-
 const Experience = () => {
-  const sectionRef = useRef<HTMLElement>(null);
   const experienceRefs = useRef<(HTMLDivElement | null)[]>([]);
   const t = useTranslation();
 
   useEffect(() => {
-    if (sectionRef.current) {
-      gsap.fromTo(
-        sectionRef.current,
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top bottom",
-          },
-        }
-      );
+    const items = experienceRefs.current.filter(Boolean) as HTMLDivElement[];
 
-      experienceRefs.current.forEach((item, index) => {
-        if (item) {
-          gsap.fromTo(
-            item,
-            { opacity: 0, y: 50 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.8,
-              delay: index * 0.2,
-              scrollTrigger: {
-                trigger: item,
-                start: "top 90%",
-              },
-            }
-          );
-        }
-      });
-    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            (entry.target as HTMLElement).classList.add(styles.visible);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -10% 0px" }
+    );
+
+    items.forEach((item, index) => {
+      item.style.transitionDelay = `${index * 0.15}s`;
+      observer.observe(item);
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <section className="section" id="experience" ref={sectionRef}>
+    <section className="section" id="experience">
       <h2 className="section-title">
         <span className="section-number">04</span>
         <span>Experience</span>
